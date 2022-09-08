@@ -94,7 +94,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      6 min read
     
 </span></p>
 
@@ -144,7 +144,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What is a continuous variable?</p>
 <ul>
-<li>numerical data that is unbounded</li>
+<li>numerical data that have a wide range of 'continuous' values (ex: age)</li>
 </ul>
 
 </div>
@@ -154,7 +154,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What is a categorical variable?</p>
 <ul>
-<li>discrete levels</li>
+<li>discrete levels that correspond to different categories</li>
 </ul>
 
 </div>
@@ -163,6 +163,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Provide two of the words that are used for the possible values of a categorical variable.</p>
+<ul>
+<li>Levels or categories</li>
+</ul>
 
 </div>
 </div>
@@ -180,6 +183,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>How do entity embeddings reduce memory usage and speed up neural networks?</p>
+<ul>
+<li>Especially for large datasets, representing the data as one-hot encoded vectors can be very inefficient (and also sparse). On the other hand, using entity embeddings allows the data to have a much more memory-efficient (dense) representation of the data. This will also lead to speed-ups for the model.</li>
+</ul>
 
 </div>
 </div>
@@ -187,6 +193,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What kinds of datasets are entity embeddings especially useful for?</p>
+<ul>
+<li>When the datasets have features with high levels of cardinality (high dimensionality)</li>
+</ul>
 
 </div>
 </div>
@@ -228,7 +237,7 @@ window.onload = wrap_img;
 <p>Why is a date different from a regular categorical or continuous variable, and how can you preprocess it to allow it to be used in a model?</p>
 <ul>
 <li>While a date can be treated as ordinal, some dates are qualitatively different from others in ways that might be useful to the systems we are modeling.</li>
-<li>We replace every date column with a set of date metadata columns, such as holiday, day of the week, and moenth. These columns provide categorical data that we suspect will be useful.</li>
+<li>We replace every date column with a set of date metadata columns, such as holiday, day of the week, and month. These columns provide categorical data that we suspect will be useful.</li>
 </ul>
 
 </div>
@@ -276,7 +285,6 @@ window.onload = wrap_img;
 <ul>
 <li>Check for errors in your data, the outliers might be an error(ie. in the bulldozer competition a large number of reported sales happened during 1000)</li>
 <li>We can take the log of the numerical / continuous column to smooth the outlier</li>
-<li></li>
 </ul>
 
 </div>
@@ -336,7 +344,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What is "out-of-bag-error"?</p>
 <ul>
-<li>OOB error is a way of measuring prediction error on the training set by only including in the calculation of a row's error tres where that row was not included in training. This allows us to see whether the model is overfitting, without needing a separate validation set. </li>
+<li>OOB error is a way of measuring prediction error on the training set by only including in the calculation of a row's error trees where that row was not included in training. This allows us to see whether the model is overfitting, without needing a separate validation set. </li>
 </ul>
 
 </div>
@@ -362,14 +370,17 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li>For predicting with a particular row of data, what were the most important factors, and how did they influence that - prediction?<ul>
-<li>Year Made and Product Size</li>
+<li>Year Made and Product Size - use treeinterpreter package to check how the prediction changes as it goes - waterfall plots </li>
 </ul>
 </li>
 <li>Which columns are the strongest predictors?<ul>
 <li>The feature importance for our model show that the first few important columns have much higher importance scores that the rest. </li>
 </ul>
 </li>
-<li>How do predictions vary as we vary these columns?</li>
+<li>How do predictions vary as we vary these columns?<ul>
+<li>Look at partial dependence plots</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -390,6 +401,7 @@ window.onload = wrap_img;
 <p>What's a good type of plot for showing tree interpreter results?</p>
 <ul>
 <li>cluster_columns</li>
+<li>waterfall plots</li>
 </ul>
 
 </div>
@@ -398,6 +410,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What is the "extrapolation problem"?</p>
+<ul>
+<li>Hard fora model to extrapolate to data that's outside the domain of the training data. This is particularly important to random forests. On the other hand, neural networks have underlying Linear layers so it could potentially generalize better.</li>
+</ul>
 
 </div>
 </div>
@@ -405,6 +420,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>How can you tell if your test or validation set is distributed in a different way than your training set?</p>
+<ul>
+<li>We can do so by training a model to classify if the data is training or validation data. If the data is of different distributions (out-of-domain data), then the model can properly classify between the two datasets.</li>
+</ul>
 
 </div>
 </div>
@@ -412,6 +430,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Why do we ensure saleElapsed is a continuous variable, even although it has less than 9,000 distinct values?</p>
+<ul>
+<li>This is a variable that changes over time, and since we want our model to extrapolate for future results, we make this a continuous variable. </li>
+</ul>
 
 </div>
 </div>
@@ -419,6 +440,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What is "boosting"?</p>
+<ul>
+<li>We train a model that under-fits the dataset, and train subsequent models that predicts the error of the original model. We then add the predictions of al the models to get the final prediction.</li>
+</ul>
 
 </div>
 </div>
@@ -426,6 +450,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>How could we use embeddings with a random forest? Would we expect this to help?</p>
+<ul>
+<li>Entity embeddings contains richer representations of the categorical features and definitely can improve the performance of other models like random forests. Instead of passing in the raw categorical columns, the entity embeddings can be passed into the random forest model.</li>
+</ul>
 
 </div>
 </div>
@@ -433,6 +460,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Why might we not always use a neural net for tabular modeling?</p>
+<ul>
+<li>We might not use a NN because they are the hardest and longest to train, and more opaque. Instead, random forests should be the first choice/baseline, and neural networks could be tried to improve these results or add to an ensemble. </li>
+</ul>
 
 </div>
 </div>
