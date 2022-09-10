@@ -6,7 +6,7 @@
 
 https://www.terpsfi.xyz
 
-# Take a journey with terps's blog
+# Terps's blog 🤗
 - Learning in public
 - All things data-science, programming, and generating insights from data
 - Feel free to reach out - admin@terpsfi.xyz
