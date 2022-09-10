@@ -1,1 +1,1 @@
-Sitemap: https://terpsfi.xyz/anything/sitemap.xml
+Sitemap: https://terpsfi.xyz/sitemap.xml
